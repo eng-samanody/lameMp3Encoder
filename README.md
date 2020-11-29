@@ -37,7 +37,7 @@ $ tar -xvf lame-3.100.tar.gz <br/>
 $ cd lame-3.100/ <br/>
 $ ./configure <br/>
 $ make <br/>
-$ sudo make install
+$ sudo make install<
 
 
 
