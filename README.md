@@ -4,9 +4,8 @@
 Simply run install.sh using : sudo ./install.sh that will : <br/>
 1- Instal LameLib using : <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`$ sudo apt-get install -y lame `<br/>
-2- Build using :
+2- Build using :<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`$ cmake . && make` <br/>
-
 3- Run excutable using :  <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`$ ./bin/CinemoTask ./TestSet`
 
