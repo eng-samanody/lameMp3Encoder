@@ -36,7 +36,7 @@ Simply run install.sh using : sudo ./install.sh that will : <br/>
 $ `cd lameRepo`<br/>
 $ `wget https://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Flame%2Ffiles%2Flatest%2Fdownload&ts=1606413672` 
 `$ mv lame-3.100.tar.gz@r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Flame%2Ffiles%2Flatest%2Fdownload lame-3.100.tar.gz` <br/>
-<br/> or download lame library source from : https://lame.sourceforge.io/download.php <br/> 
+or download lame library source from : https://lame.sourceforge.io/download.php <br/> 
 `$ tar -xvf lame-3.100.tar.gz` <br/>
 `$ cd lame-3.100/ `<br/>
 `$ ./configure `<br/>
