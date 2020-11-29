@@ -1,9 +1,11 @@
 # LameTask
 
 ## ON LINUX ##
-Simply run install.sh using : sudo ./install.sh that will : 
-1- Instal LameLib using : sudo apt-get install -y lame
-2- Build using : cmake . && make
+Simply run install.sh using : sudo ./install.sh that will : <br/>
+1- Instal LameLib using : <br/>
+   $ sudo apt-get install -y lame <br/>
+2- Build using : <br/>
+   $ cmake . && make <br/>
 
 3- Run excutable using : ./bin/CinemoTask ./TestSet
 
@@ -17,17 +19,17 @@ Simply run install.sh using : sudo ./install.sh that will :
   $ export PATH=$PATH:/mingw64/bin/ <br/>
 
 > ## get lame as package installed <br/>
-$pacman -S mingw-w64-x86_64-lame-52 <br/>
+>  $ pacman -S mingw-w64-x86_64-lame-52 <br/>
 
 6- set up compiler paths: <br/>
   $ export CC=/mingw64/bin/gcc.exe <br/>
   $ export CXX=/mingw64/bin/g++.exe <br/>
 
 7- change to project dir and build using : <br/>
-  $ cmake .
-  $ make
+  $ cmake . <br/>
+  $ make <br/>
 8- run excutable using : <br/>
-  $ ./bin/CinemoTask.exe ./TestSet
+  $ ./bin/CinemoTask.exe ./TestSet<br/>
 
 > ## TO BUILD AND INSTALL LAME LIB FROM SOURCE 
 >$ mkdir lameRepo <br/>
