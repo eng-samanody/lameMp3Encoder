@@ -8,25 +8,26 @@ Simply run install.sh using : sudo ./install.sh that will :
 3- Run excutable using : ./bin/CinemoTask ./TestSet
 
 ## ON WINDOWS ##
-1- Install msys ,run it , and run following commands :
-2 -Install gcc : pacman -S mingw-w64-x86_64-gcc 
-3- Install cmake : pacman -S mingw-w64-x86_64-cmake
-4- Add gcc to PATH : export PATH=$PATH:/mingw64/bin/
+1- Install msys ,run it , and run following commands :<br/>
+2 -Install gcc : <br/>
+  $ pacman -S mingw-w64-x86_64-gcc <br/>
+3- Install cmake : <br/>
+  $ pacman -S mingw-w64-x86_64-cmake <br/>
+4- Add gcc to PATH : <br/>
+  $ export PATH=$PATH:/mingw64/bin/ <br/>
 
-#### get lame as package installed 
-pacman -S mingw-w64-x86_64-lame-52
+> ## get lame as package installed <br/>
+$pacman -S mingw-w64-x86_64-lame-52 <br/>
 
-#set up compiler paths
-export CC=/mingw64/bin/gcc.exe
-export CXX=/mingw64/bin/g++.exe
+6- set up compiler paths: <br/>
+  $ export CC=/mingw64/bin/gcc.exe <br/>
+  $ export CXX=/mingw64/bin/g++.exe <br/>
 
-#change to project dir and build using 
-$cd ../CinemoTask/LameTask/
-$cmake .
-$make
-
-#run excutable using 
-$./bin/CinemoTask.exe ./TestSet
+7- change to project dir and build using : <br/>
+  $ cmake .
+  $ make
+8- run excutable using : <br/>
+  $ ./bin/CinemoTask.exe ./TestSet
 
 > ## TO BUILD AND INSTALL LAME LIB FROM SOURCE 
 >$ mkdir lameRepo <br/>
