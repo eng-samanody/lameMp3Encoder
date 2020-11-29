@@ -38,8 +38,8 @@ $make
 
 #run excutable using 
 $./bin/CinemoTask.exe ./TestSet
-##########################################################################################################################################
-################################################## TO BUILD AND INSTALL LAME LIB FROM SOURCE #############################################
+#######################
+####################### TO BUILD AND INSTALL LAME LIB FROM SOURCE #######################
 $mkdir lameRepo
 $cd lameRepo
 $wget https://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Flame%2Ffiles%2Flatest%2Fdownload&ts=1606413672
@@ -49,10 +49,7 @@ $cd lame-3.100/
 $./configure
 $make
 $sudo make install
-############################################################################################################################################
-
-
-
+#######################
 
 
 
