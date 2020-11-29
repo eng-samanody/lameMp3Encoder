@@ -12,24 +12,24 @@ Simply run install.sh using : sudo ./install.sh that will : <br/>
 ## ON WINDOWS ##
 1- Install msys ,run it , and run following commands :<br/>
 2 -Install gcc : <br/>
-&nbsp;&nbsp;$ pacman -S mingw-w64-x86_64-gcc <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ pacman -S mingw-w64-x86_64-gcc <br/>
 3- Install cmake : <br/>
-&nbsp;&nbsp;$ pacman -S mingw-w64-x86_64-cmake <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ pacman -S mingw-w64-x86_64-cmake <br/>
 4- Add gcc to PATH : <br/>
-&nbsp;&nbsp;$ export PATH=$PATH:/mingw64/bin/ <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ export PATH=$PATH:/mingw64/bin/ <br/>
 
 > ## get lame as package installed <br/>
 >  $ pacman -S mingw-w64-x86_64-lame-52 <br/>
 
 6- set up compiler paths: <br/>
-&nbsp;&nbsp;$ export CC=/mingw64/bin/gcc.exe <br/>
-&nbsp;&nbsp;$ export CXX=/mingw64/bin/g++.exe <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ export CC=/mingw64/bin/gcc.exe <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ export CXX=/mingw64/bin/g++.exe <br/>
 
 7- change to project dir and build using : <br/>
-&nbsp;&nbsp;$ cmake . <br/>
-&nbsp;&nbsp;$ make <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ cmake . <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ make <br/>
 8- run excutable using : <br/>
-&nbsp;&nbsp;$ ./bin/CinemoTask.exe ./TestSet<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;$ ./bin/CinemoTask.exe ./TestSet<br/>
 
 > ## TO BUILD AND INSTALL LAME LIB FROM SOURCE 
 >$ mkdir lameRepo <br/>
