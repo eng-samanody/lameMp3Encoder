@@ -1,7 +1,7 @@
 # LameTask
 
 
-####################### ON LINUX ########################
+## ON LINUX ##
 #simply run install.sh using : sudo ./install.sh)
 #that will : 
 #Instal LameLib using
