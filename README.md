@@ -7,7 +7,7 @@ Simply run install.sh using : sudo ./install.sh that will : <br/>
 2- Build using : <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;`$ cmake . && make` <br/>
 
-3- Run excutable using : ./bin/CinemoTask ./TestSet
+3- Run excutable using : `$ ./bin/CinemoTask ./TestSet`
 
 ## ON WINDOWS ##
 1- Install msys ,run it , and run following commands :<br/>
