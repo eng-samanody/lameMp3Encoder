@@ -1,30 +1,19 @@
 # LameTask
 
+## ON LINUX ##
+Simply run install.sh using : sudo ./install.sh that will : 
+1- Instal LameLib using : sudo apt-get install -y lame
+2- Build using : cmake . && make
 
-# ON LINUX
-#simply run install.sh using : sudo ./install.sh)
-#that will : 
-#Instal LameLib using
-$sudo apt-get install -y lame
+3- Run excutable using : ./bin/CinemoTask ./TestSet
 
-#change to project dir and build using 
-$cmake .
-$make
+## ON WINDOWS ##
+1- Install msys ,run it , and run following commands :
+2 -Install gcc : pacman -S mingw-w64-x86_64-gcc 
+3- Install cmake : pacman -S mingw-w64-x86_64-cmake
+4- Add gcc to PATH : export PATH=$PATH:/mingw64/bin/
 
-#run excutable using 
-$./bin/CinemoTask ./TestSet
-
-
-# ON WINDOWS #
-install msys and run following commands 
-install gcc
-$pacman -S mingw-w64-x86_64-gcc 
-#install cmake 
-$pacman -S mingw-w64-x86_64-cmake
-#add gcc to PATH
-$export PATH=$PATH:/mingw64/bin/
-
-## get lame as package installed ##
+#### get lame as package installed 
 pacman -S mingw-w64-x86_64-lame-52
 
 #set up compiler paths
