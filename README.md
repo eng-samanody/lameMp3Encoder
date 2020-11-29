@@ -1,7 +1,7 @@
 # LameTask
 
 
-################################################################## ON LINUX ###############################################################
+####################### ON LINUX ########################
 #simply run install.sh using : sudo ./install.sh)
 #that will : 
 #Instal LameLib using
@@ -15,8 +15,7 @@ $make
 $./bin/CinemoTask ./TestSet
 
 
-
-################################################################### ON WINDOWS #########################################################
+####################### ON WINDOWS #######################
 #install msys and run following commands 
 #install gcc
 $pacman -S mingw-w64-x86_64-gcc 
