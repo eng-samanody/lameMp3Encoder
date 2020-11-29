@@ -7,11 +7,7 @@
 #include "lame/lame.h"
 #include <pthread.h>
 #include <thread>
-
-
-const std::string redFontColor("\033[0;31m");
-const std::string greenFonrtColor("\033[0;32m");
-const std::string resetFont("\033[0m");
+#include "Logger.h"
 
 std::vector<std::string>* queue;
 unsigned int ItemsCompleted = 0;
@@ -21,9 +17,8 @@ bool encodeToMp3(const std::string& inputWavFilePath) {
     const unsigned int PCM_SIZE = 144000, MP3_SIZE = 144000;
     short int pcm_buffer[PCM_SIZE * 2];
     unsigned char mp3_buffer[MP3_SIZE];
-    //const unsigned int bytes_per_sample = 2 * sizeof(int16_t); // stereo signal, 16 bits
     lame_t lameGlobalFlags = lame_init();
-    lame_set_in_samplerate(lameGlobalFlags, 44100);
+    lame_set_in_samplerate(lameGlobalFlags, 44100);//Input files support is limited to 16 bit stereo WAV files, sample rate 44100
     lame_set_VBR(lameGlobalFlags, vbr_default); /* Types of VBR.  default = vbr_off = CBR */
     lame_set_VBR_q(lameGlobalFlags, 5);/* VBR quality level.  0=highest  9=lowest  */
     id3tag_init(lameGlobalFlags);
@@ -50,7 +45,7 @@ bool encodeToMp3(const std::string& inputWavFilePath) {
             catch (const std::exception& e){
                 std::cout << "Exception wav.read : " << e.what() << '\n';
             }
-            int rCount = wavInStream.gcount() / (2 * sizeof(short));
+            int rCount = wavInStream.gcount() / (2 * sizeof(short)); //Input files support is limited to 16 bit stereo WAV files, sample rate 44100
             if (rCount == 0) {
                 wrtCount = lame_encode_flush(lameGlobalFlags, mp3_buffer, MP3_SIZE);
             } else {
@@ -90,12 +85,12 @@ std::vector<std::string> getWavFiles(std::string & inputDir)
             if (GetFileSize(inFilePath) > 0) {
                 foundWavFiles.push_back(inFilePath);
                 static int i = 0;
-                std::cout << greenFonrtColor << ">> Found file " << i++ << " : " << inFilePath << resetFont << std::endl;
+               Logger::logColored(Logger::tEnuColors::GREEN,">> Found file " , i++ , " : " , inFilePath );
             } else {
-                std::cout << redFontColor << ">> Negelected : " << inFilePath << resetFont << std::endl;
+                Logger::logColored(Logger::tEnuColors::RED, ">> Ignored : " , inFilePath );
             }
         } else {
-            std::cout << redFontColor << ">> Negelected : " << inFilePath << resetFont << std::endl;
+            Logger::logColored(Logger::tEnuColors::RED, ">> Ignored : ", inFilePath);
         }
         entry = readdir(directory);
     }
@@ -137,27 +132,30 @@ void createThreadPool (std::vector<std::string> files){
 		case 0:
 			break;
 		case EAGAIN:
-            throw std::runtime_error("Insufficient resources to create thread.");
+            throw std::runtime_error("**failed to create thread due to Insufficient resources**");
 			break;
+        case EPERM:
+            throw std::runtime_error("**failed to create thread due to Insufficitent permissions**");
+            break;
 		case EINVAL:
-            throw std::runtime_error("Invalid settings in attr.");
-			break;
-		case EPERM:
-            throw std::runtime_error("Insufficitent permissions.");
+            throw std::runtime_error("**failed to create thread due to Invalid settings**");
 			break;
 		default:
-            throw std::runtime_error("Unknown error creating thread.");
+            throw std::runtime_error("**!!!UNKNOWN ERROR!!!**");
+            break;
 		}
+
 	}
 	
 	for (auto thread: vectorOfThreads) {
         pthread_join(thread, nullptr);
     }
-    std::cout << greenFonrtColor << "Successfully processed: " << ItemsCompleted << "/" << filesCount << " items" << resetFont << '\n';
+    Logger::logColored(Logger::tEnuColors::GREEN, "Successfully processed: " , ItemsCompleted , "/" , filesCount , " items" );
 }
 
 int main(int argc, char* argv[])
 {
+
 	if (argc == 2) {
 		std::string inputDirPath(argv[1]);
 		std::vector<std::string> wavFiles = getWavFiles(inputDirPath);
@@ -165,12 +163,12 @@ int main(int argc, char* argv[])
             try {
                 createThreadPool(wavFiles);
             } catch (const std::exception & e) {
-                std::cout << redFontColor << "**ERR** THREAD CREATE FAILED : " << e.what() << resetFont << '\n';
+                Logger::logColored( Logger::tEnuColors::RED, "**ERR** THREAD CREATE FAILED : " , e.what() );
             }
 		} else {
-			std::cout << redFontColor  <<"**ERR** NO .WAV FILES FOUND" << resetFont << '\n';
+            Logger::logColored( Logger::tEnuColors::RED, "**ERR** NO .WAV FILES FOUND" );
 		}
 	} else {
-		std::cout << redFontColor << "**ERR** USAGE ERROR > Please try : " << argv[0] << " <in/out directory>" << resetFont << '\n';
+        Logger::logColored( Logger::tEnuColors::RED, "**ERR** USAGE ERROR > Please try : " , argv[0] , " <in/out directory>" );
 	}
 }
